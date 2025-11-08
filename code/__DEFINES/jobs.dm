@@ -201,6 +201,7 @@
 #define DEATHKNIGHT (1<<1)
 #define SKELETON	(1<<2)
 #define GOBLIN		(1<<3)
+#define SKELETONSIEGER (1<<4)
 
 #define INQUISITION (1<<10)
 

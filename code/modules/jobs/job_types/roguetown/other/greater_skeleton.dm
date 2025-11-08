@@ -90,3 +90,30 @@ NECRO SKELETONS
 
 	shirt = prob(50) ? /obj/item/clothing/suit/roguetown/shirt/undershirt/vagrant : /obj/item/clothing/suit/roguetown/shirt/undershirt/vagrant/l
 	r_hand = prob(50) ? /obj/item/rogueweapon/sword : /obj/item/rogueweapon/stoneaxe/woodcut
+
+
+// Skeleton Job used only for the Skeleton Siege event
+//This spawn the skeletons using the stats and equipment from the NPC skeleton list found at core\modules\mob\living\carbon\human\npc\skeleton.dm
+/datum/job/roguetown/skeletonbesieger
+	title = "Besieger Skeleton"
+	flag = SKELETONSIEGER
+	department_flag = SLOP
+	faction = "Station"
+	total_positions = 0
+	spawn_positions = 0
+	min_pq = null //no pq
+	max_pq = null
+
+	allowed_sexes = list(MALE, FEMALE)
+	allowed_races = RACES_ALL_KINDS
+	tutorial = ""
+
+	outfit = /datum/outfit/job/roguetown/npc/skeleton/
+	show_in_credits = FALSE
+	give_bank_account = FALSE
+	announce_latejoin = FALSE
+
+/datum/job/roguetown/skeletonbesieger/equip(mob/living/carbon/human/H, visualsOnly, announce, latejoin, datum/outfit/outfit_override, client/preference_source)
+	. = ..()
+	return  H.change_mob_type(/mob/living/carbon/human/species/skeleton, delete_old_mob = TRUE)
+
