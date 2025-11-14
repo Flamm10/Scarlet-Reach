@@ -28,7 +28,7 @@
 	)
 
 /datum/advclass/servant/servant
-	traits_applied = list(TRAIT_CICERONE, TRAIT_KEENEARS, TRAIT_SLEUTH,TRAIT_ROYALSERVANT)
+	traits_applied = list(TRAIT_CICERONE, TRAIT_KEENEARS, TRAIT_SLEUTH, TRAIT_ROYALSERVANT)
 	name = "Servant"
 	tutorial = "You are a humdrum servant, dressed the part; lowly and best out of sight. It's practical, however."
 	outfit = /datum/outfit/job/roguetown/servant/servant
@@ -88,7 +88,7 @@
 		STATKEY_INT = 1,
 		STATKEY_SPD = 1
 	)
-	traits_applied = list(TRAIT_CICERONE, TRAIT_KEENEARS, TRAIT_SLEUTH)
+	traits_applied = list(TRAIT_CICERONE, TRAIT_KEENEARS, TRAIT_SLEUTH, TRAIT_ROYALSERVANT)
 	subclass_skills = list(
 		/datum/skill/combat/knives = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/craft/cooking = SKILL_LEVEL_JOURNEYMAN,
@@ -136,7 +136,7 @@
 		STATKEY_INT = 1,
 		STATKEY_SPD = 1
 	)
-	traits_applied = list(TRAIT_CICERONE, TRAIT_KEENEARS, TRAIT_SLEUTH)
+	traits_applied = list(TRAIT_CICERONE, TRAIT_KEENEARS, TRAIT_SLEUTH, TRAIT_ROYALSERVANT)
 	subclass_skills = list(
 		/datum/skill/combat/knives = SKILL_LEVEL_APPRENTICE,
 		/datum/skill/craft/cooking = SKILL_LEVEL_JOURNEYMAN,
