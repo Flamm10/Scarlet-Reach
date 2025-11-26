@@ -163,7 +163,7 @@
 	// traits_applied = list(TRAIT_DODGEEXPERT) (removing this per request, can be tweaked later if needed)
 	traits_applied = list(TRAIT_MEDIUMARMOR) // given so they can't have arcyne potential. sorry! you can still dodge if you want.
 	subclass_stats = list(
-		STATKEY_SPD = 2,// seems kinda lame but remember guardsman bonus!!
+		STATKEY_SPD = 3,// +1 spd so they can use their missing DE a little better
 		STATKEY_PER = 2,
 		STATKEY_END = 1
 	)
@@ -190,7 +190,7 @@
 	..()
 
 	shirt = /obj/item/clothing/suit/roguetown/armor/gambeson/lord			// Cant wear chainmail anymoooree
-	armor = /obj/item/clothing/suit/roguetown/armor/leather/studded		//Helps against arrows; makes sense for a ranged-type role.
+	armor = /obj/item/clothing/suit/roguetown/armor/plate/half		//Cuirass... Since they now have medium armor trait.
 	neck = /obj/item/clothing/neck/roguetown/chaincoif/iron
 	pants = /obj/item/clothing/under/roguetown/trou/leather
 
