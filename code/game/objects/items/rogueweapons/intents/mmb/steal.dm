@@ -15,17 +15,17 @@
 		var/mob/living/carbon/human/target_human = target
 
 		var/thiefskill = user.get_skill_level(/datum/skill/misc/stealing) + (has_world_trait(/datum/world_trait/matthios_fingers) ? 1 : 0)
-		var/initialstealroll = roll("1d6") + (thiefskill * 2) + (user.STASPD / 2)
+		var/initialstealroll = roll("1d6") + (thiefskill * 2) + (user.STASPD / 3)
 		var/advantageroll = 0
 		var/targetperception = (target_human.STAPER)
 
 		if(target_human.cmode)
-			targetperception += 1 // Target is alert
+			targetperception += 4 // Target is alert
 
 		if(HAS_TRAIT(user, TRAIT_CULTIC_THIEF)) // Matthios blesses his devout with rolling advantage on thieving checks.
-			advantageroll = roll("1d6") + (thiefskill * 2) + (user.STASPD / 2)
+			advantageroll = roll("1d6") + (thiefskill * 2) + (user.STASPD / 3)
 		
-		var/chance2steal = round(((6 + (thiefskill * 2) + (user.STASPD / 2) - (target_human.STAPER)) / 6 ) * 100, 1)
+		var/chance2steal = max(round(((6 + (thiefskill * 2) + (user.STASPD / 3) - (targetperception)) / 6 ) * 100, 1), 0)
 
 		var/stealroll = max(initialstealroll, advantageroll)
 
@@ -98,7 +98,7 @@
 			if(stealroll < targetperception)
 				target_human.log_message("has had an attempted pickpocket by [key_name(user_human)]", LOG_ATTACK, color="white")
 				user_human.log_message("has attempted to pickpocket [key_name(target_human)]", LOG_ATTACK, color="white")
-				to_chat(user, span_danger("I failed to pick the pocket! [chance2steal]%"))
+				to_chat(user, span_danger("I failed to pick the pocket! [chance2steal]%!"))
 				to_chat(target_human, span_danger("Someone tried pickpocketing me!"))
 				exp_to_gain /= 5 // these can be removed or changed on reviewer's discretion
 			// If we're pickpocketing someone else, and that person is conscious, grant XP
