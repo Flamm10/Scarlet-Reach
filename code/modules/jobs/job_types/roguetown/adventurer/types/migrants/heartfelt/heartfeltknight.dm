@@ -5,6 +5,7 @@
 	Now, alone and committed to safeguarding what remains of your court, you ride to the Peak, resolved to ensure their safe arrival."
 	allowed_sexes = list(MALE, FEMALE)
 	allowed_races = RACES_NO_GOLEM
+	outfit = /datum/outfit/job/roguetown/heartfelt/knight
 	total_positions = 1
 	spawn_positions = 0
 	job_traits = list(TRAIT_NOBLE, TRAIT_HEAVYARMOR, TRAIT_HEARTFELT)

@@ -1,6 +1,6 @@
 
 /datum/advclass/heartfelt/retinue/magos
-	name = "Heartfeltian Retinue"
+	name = "Heartfeltian Magos"
 	tutorial = "You are the Magos of Heartfelt, renowned for your arcane knowledge yet unable to foresee the tragedy that befell your home. \
 	Drawn by a guiding star to the Peak, you seek answers and perhaps a new purpose in the wake of destruction."
 	allowed_sexes = list(MALE, FEMALE)
@@ -25,19 +25,21 @@
 	beltl = /obj/item/flashlight/flare/torch/lantern
 	beltr = /obj/item/storage/magebag/starter
 	id = /obj/item/clothing/ring/gold
-	r_hand = /datum/crafting_recipe/gemstaff/ruby_staff //Two Levels down from CW
+	r_hand = /obj/item/rogueweapon/woodstaff/ruby //Two Levels down from CW
 	backl = /obj/item/storage/backpack/rogue/satchel
 	backpack_contents = list(
 		/obj/item/reagent_containers/glass/bottle/rogue/poison,
 		/obj/item/reagent_containers/glass/bottle/rogue/healthpot,
 		/obj/item/recipe_book/alchemy,
-		/obj/item/roguegem/amethyst ,
+		/obj/item/roguegem/amethyst,
 		/obj/item/spellbook_unfinished/pre_arcyne,
-		/obj/item/rogueweapon/huntingknife/idagger/silver/arcyne
+		/obj/item/rogueweapon/huntingknife/idagger/silver/arcyne,
+		/obj/item/scrying
 		)
 
 	ADD_TRAIT(H, TRAIT_SEEPRICES, "[type]")
 	ADD_TRAIT(H, TRAIT_ARCYNE_T4, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_HEARTFELT, TRAIT_GENERIC)
 	H.adjust_skillrank(/datum/skill/misc/reading, 6, TRUE)
 	H.adjust_skillrank(/datum/skill/craft/alchemy, 3, TRUE)
 	H.adjust_skillrank(/datum/skill/magic/arcane, 5, TRUE)
@@ -72,6 +74,5 @@
 		head = /obj/item/clothing/head/roguetown/wizhat
 		armor = /obj/item/clothing/suit/roguetown/shirt/robe/wizard
 		H.dna.species.soundpack_m = new /datum/voicepack/male/wizard()
-	var/list/spells = list(/obj/effect/proc_holder/spell/targeted/touch/prestidigitation)
 	for(var/S in spells)
 		H.mind.AddSpell(new S)

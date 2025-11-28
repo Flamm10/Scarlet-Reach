@@ -26,6 +26,7 @@
 	shoes = /obj/item/clothing/shoes/roguetown/boots/leather
 	belt = /obj/item/storage/belt/rogue/leather/black
 	beltl = /obj/item/storage/belt/rogue/surgery_bag/full/physician
+	beltr = /obj/item/rogueweapon/huntingknife
 	id = /obj/item/scomstone/bad
 	r_hand = /obj/item/rogueweapon/woodstaff
 	backl = /obj/item/storage/backpack/rogue/satchel/black
@@ -37,7 +38,9 @@
 		/obj/item/storage/belt/rogue/pouch/coins/rich = 1,
 		/obj/item/recipe_book/alchemy = 1,
 	)
-
+	ADD_TRAIT(H, TRAIT_HEARTFELT, TRAIT_GENERIC)
+	ADD_TRAIT(H, TRAIT_NOSTINK, TRAIT_GENERIC)
+	ADD_TRAIT(H,TRAIT_EMPATH, TRAIT_GENERIC)
 	if(H.mind)
 		H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/diagnose/secular)
 		if(H.patron?.type == /datum/patron/divine/pestra)

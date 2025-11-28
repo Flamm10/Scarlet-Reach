@@ -13,7 +13,7 @@
 
 // Master Smith role for Heartfelt
 
-	traits_applied = list(TRAIT_TRAINED_SMITH, TRAIT_MEDIUMARMOR)
+	traits_applied = list(TRAIT_TRAINED_SMITH, TRAIT_MEDIUMARMOR, TRAIT_HEARTFELT)
 	subclass_stats = list( // idk what to say bruh, i guess he's legendary indeed
 		STATKEY_LCK = 1,
 		STATKEY_STR = 2,

@@ -24,7 +24,7 @@
 	shoes = /obj/item/clothing/shoes/roguetown/boots/nobleboot
 	pants = /obj/item/clothing/under/roguetown/tights/black
 	gloves =/obj/item/clothing/gloves/roguetown/angle
-	beltr = /obj/item/rogueweapon/huntingknife
+	beltr = /obj/item/flashlight/flare/torch/lantern
 	id = /obj/item/scomstone
 	backl = /obj/item/storage/backpack/rogue/satchel/heartfelt
 
@@ -39,7 +39,7 @@
 	Pressed once more into service by tragedy, you climb towards the Reach."
 	outfit = /datum/outfit/job/roguetown/heartfelt/hand/marshal
 	category_tags = list(CTAG_HFT_HAND)
-	traits_applied = list(TRAIT_HEAVYARMOR)
+	traits_applied = list(TRAIT_HEAVYARMOR, TRAIT_NOBLE, TRAIT_HEARTFELT)
 	subclass_stats = list(
 		STATKEY_STR = 2,
 		STATKEY_PER = 2,
@@ -50,7 +50,7 @@
 
 /datum/outfit/job/roguetown/heartfelt/hand/marshal/pre_equip(mob/living/carbon/human/H)
 	..()
-	neck = /obj/item/clothing/neck/roguetown/gorget
+	neck = /obj/item/clothing/neck/roguetown/gorget/steel
 	armor = /obj/item/clothing/suit/roguetown/armor/heartfelt/hand
 	r_hand = /obj/item/rogueweapon/sword/long/dec
 	//l_hand = banner-pike for when I add it
@@ -102,7 +102,7 @@
 	Pressed once more into service by tragedy, you climb towards the Reach."
 	outfit = /datum/outfit/job/roguetown/heartfelt/hand/steward
 	category_tags = list(CTAG_HFT_HAND)
-	traits_applied = list(TRAIT_MEDIUMARMOR, TRAIT_SEEPRICES)
+	traits_applied = list(TRAIT_MEDIUMARMOR, TRAIT_SEEPRICES, TRAIT_HEARTFELT)
 	subclass_stats = list(
 		STATKEY_STR = 1,
 		STATKEY_SPD = 2,
@@ -117,13 +117,13 @@
 	gloves = /obj/item/clothing/gloves/roguetown/leather/black
 	r_hand = /obj/item/rogueweapon/sword/sabre/dec
 	beltl = /obj/item/rogueweapon/scabbard/sword
-	beltr = /obj/item/rogueweapon/huntingknife
-	backr = /obj/item/storage/backpack/rogue/satchel/heartfelt // Paper and Feather
+	beltr = /obj/item/flashlight/flare/torch/lantern
+	neck = /obj/item/storage/belt/rogue/pouch/coins/rich
 	backpack_contents = list(
 		/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1,
 		/obj/item/rogueweapon/scabbard/sheath = 1,
 		/obj/item/rogueweapon/huntingknife = 1,
-		/obj/item/storage/belt/rogue/pouch/coins/rich = 2,)
+		/obj/item/storage/belt/rogue/pouch/coins/rich = 1,)
 	mask = /obj/item/clothing/mask/rogue/spectacles/golden
 	id = /obj/item/scomstone
 	if(H.mind)
@@ -150,7 +150,7 @@
 	Bound once more to serve in the wake of ruin, you climb towards the Reach."
 	outfit = /datum/outfit/job/roguetown/heartfelt/hand/advisor
 	category_tags = list(CTAG_HFT_HAND)
-	traits_applied = list(TRAIT_MAGEARMOR, TRAIT_ARCYNE_T2, TRAIT_INTELLECTUAL, TRAIT_SEEPRICES_SHITTY)
+	traits_applied = list(TRAIT_MAGEARMOR, TRAIT_ARCYNE_T2, TRAIT_INTELLECTUAL, TRAIT_SEEPRICES_SHITTY, TRAIT_HEARTFELT)
 	subclass_stats = list(
 		STATKEY_INT = 4,
 		STATKEY_PER = 3,
@@ -184,6 +184,7 @@
 	shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/guard
 	r_hand = /obj/item/rogueweapon/sword/sabre/dec
 	beltl = /obj/item/rogueweapon/scabbard/sword
+	mask = /obj/item/clothing/mask/rogue/spectacles/golden
 	backpack_contents = list(
 		/obj/item/rogueweapon/huntingknife/idagger/steel/special = 1,
 		/obj/item/rogueweapon/scabbard/sheath = 1,

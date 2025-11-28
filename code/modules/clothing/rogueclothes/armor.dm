@@ -1174,7 +1174,7 @@
 /obj/item/clothing/suit/roguetown/armor/brigandine/heartfelt //Using brigandine for fancy coloring
 	slot_flags = ITEM_SLOT_ARMOR
 	name = "heartfeltian brigandine"
-	desc = "Composite armour made according to an Etruscan tradition. It's a high-quality arched plate cuirass sewn with dyed leather and fitted with a wide skirt at the bottom to cover the thighs."
+	desc = "Lightweight composite armour made according to an Etruscan tradition. It's a high-quality arched plate cuirass sewn with dyed leather and fitted with a wide skirt at the bottom to cover the thighs."
 	icon_state = "brigandine"
 	blocksound = SOFTHIT
 	body_parts_covered = COVERAGE_FULL
