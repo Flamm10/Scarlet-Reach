@@ -2808,6 +2808,7 @@
 	desc = "Prepare the slop."
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
 	icon_state = "cookhat"
+	item_state = "cookhat"
 	allowed_race = OGRE_RACE_TYPES
 
 /obj/item/clothing/head/roguetown/helmet/heavy/ogre
@@ -2815,6 +2816,7 @@
 	desc = "This one's too large for normal people."
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
 	icon_state = "merchelmet"
+	item_state = "merchelmet"
 	allowed_race = OGRE_RACE_TYPES
 
 /obj/item/clothing/head/roguetown/helmet/heavy/graggar/ogre
@@ -2822,4 +2824,5 @@
 	desc = "KILL! CRUSH! MAIM!"
 	mob_overlay_icon = 'icons/roguetown/clothing/onmob/32x64/ogre_onmob.dmi'
 	icon_state = "warlhelmet"
+	item_state = "warlhelmet"
 	allowed_race = OGRE_RACE_TYPES

@@ -1,38 +1,39 @@
 /datum/advclass/ogre/mercenary
-    name = "Mercenary" 
-    tutorial = "Hailing from Gronn, you've learned that ogres are tolerated if they provide their massive strength to others, and coin can help you get more ale and meat if you got enough of it. You've come to Scarlet Reach with a simple goal. Get paid, get food."
-    allowed_sexes = list(MALE) // sorry ladies
-    allowed_races = /datum/species/ogre
-    outfit = /datum/outfit/job/roguetown/ogre/mercenary
-    category_tags = list(CTAG_OGRE)
-    cmode_music = 'sound/music/combat_fullplate.ogg' // i actually really like this one - zera
+	name = "Mercenary" 
+	tutorial = "Hailing from Gronn, you've learned that ogres are tolerated if they provide their massive strength to others, and coin can help you get more ale and meat if you got enough of it. You've come to Scarlet Reach with a simple goal. Get paid, get food."
+	allowed_sexes = list(MALE) // sorry ladies
+	allowed_races = /datum/species/ogre
+	outfit = /datum/outfit/job/roguetown/ogre/mercenary
+	category_tags = list(CTAG_OGRE)
+	cmode_music = 'sound/music/combat_fullplate.ogg' // i actually really like this one - zera
 
 
-    traits_applied = list(TRAIT_NOPAINSTUN, TRAIT_CALTROPIMMUNE, TRAIT_STRONGBITE) //strongbite might be funny
-    subclass_stats = list( 
-        STATKEY_STR = 4, 
-        STATKEY_CON = 3,
-        STATKEY_END = 3,
-        STATKEY_INT = -2,
-    ) //4 (class) + 2 (race) strength is 16 base strength - 15 is min strength for their weapons and i think itd be cool for people to play around with statpacks
+	traits_applied = list(TRAIT_NOPAINSTUN, TRAIT_CALTROPIMMUNE, TRAIT_STRONGBITE, TRAIT_MEDIUMARMOR) //strongbite might be funny
+	subclass_stats = list( 
+		STATKEY_STR = 4, 
+		STATKEY_CON = 3,
+		STATKEY_END = 3,
+		STATKEY_INT = -2,
+	) //4 (class) + 2 (race) strength is 16 base strength - 15 is min strength for their weapons and i think itd be cool for people to play around with statpacks
 
-    subclass_skills = list(
-        /datum/skill/combat/maces = SKILL_LEVEL_EXPERT,
-        /datum/skill/combat/polearms = SKILL_LEVEL_EXPERT,
-        /datum/skill/combat/axes = SKILL_LEVEL_EXPERT,
-        /datum/skill/combat/wrestling = SKILL_LEVEL_JOURNEYMAN,
-        /datum/skill/combat/unarmed = SKILL_LEVEL_JOURNEYMAN,
-        /datum/skill/misc/athletics = SKILL_LEVEL_EXPERT,
-        /datum/skill/misc/climbing = SKILL_LEVEL_APPRENTICE,
-    ) //trust me this'll be fine - they'll only have a cuirass and a hauberk for armor i swear
+	subclass_skills = list(
+		/datum/skill/combat/maces = SKILL_LEVEL_EXPERT,
+		/datum/skill/combat/polearms = SKILL_LEVEL_EXPERT,
+		/datum/skill/combat/axes = SKILL_LEVEL_EXPERT,
+		/datum/skill/combat/wrestling = SKILL_LEVEL_JOURNEYMAN,
+		/datum/skill/combat/knives = SKILL_LEVEL_EXPERT,
+		/datum/skill/combat/unarmed = SKILL_LEVEL_JOURNEYMAN,
+		/datum/skill/misc/athletics = SKILL_LEVEL_EXPERT,
+		/datum/skill/misc/climbing = SKILL_LEVEL_APPRENTICE,
+	) //trust me this'll be fine - they'll only have a cuirass and a hauberk for armor i swear
 
 /datum/outfit/job/roguetown/ogre/mercenary/pre_equip(mob/living/carbon/human/H)
 	..()
 	if(H.mind)
 		to_chat(H, span_warning("Hailing from Gronn, you've learned that ogres are tolerated if they provide their massive strength to others, and coin can help you get more ale and meat if you got enough of it. You've come to Scarlet Reach with a simple goal. Get paid, get food."))
 		shoes = /obj/item/clothing/shoes/roguetown/armor/ogre
-		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt
-		neck = /obj/item/storage/belt/rogue/pouch/coins/poor
+		shirt = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/ogre
+		neck = /obj/item/clothing/neck/roguetown/gorget
 		pants = /obj/item/clothing/under/roguetown/chainlegs/ogre
 		gloves = /obj/item/clothing/gloves/roguetown/plate/ogre
 		wrists = /obj/item/clothing/wrists/roguetown/bracers/ogre
@@ -41,7 +42,6 @@
 		armor = /obj/item/clothing/suit/roguetown/armor/plate/half/ogre
 		beltr = /obj/item/rogueweapon/huntingknife/cleaver/ogre
 		backr = /obj/item/storage/backpack/rogue/satchel
-		shirt = /obj/item/clothing/suit/roguetown/armor/chainmail/hauberk/ogre
 		backpack_contents = list(
 			/obj/item/rogueweapon/mace/cudgel/ogre = 1,
 			/obj/item/rope/chain = 1,

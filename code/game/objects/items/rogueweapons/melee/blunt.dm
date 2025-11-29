@@ -586,8 +586,7 @@
 	force = 25
 	icon = 'icons/roguetown/weapons/64.dmi'
 	icon_state = "ogre_cudgel"
-	force_wielded = 25
 	minstr = 13
 	pixel_y = -16
 	pixel_x = -16
-	gripsprite = TRUE
+	bigboy = TRUE

@@ -8,7 +8,6 @@
 	allowed_races = /datum/species/ogre
 	allowed_sexes = list(MALE)
 	tutorial = "You are a travelling Ogre, who once originated from Gronn. You're so, so very hungry."
-	class_categories = TRUE
 	outfit = null
 	outfit_female = null
 	display_order = JDO_OGRE
@@ -24,10 +23,3 @@
 	cmode_music = 'sound/music/combat.ogg'
 
 	job_traits = list(TRAIT_OUTLANDER)
-
-	job_subclasses = list(
-		/datum/advclass/ogre/avatar,
-		/datum/advclass/ogre/mercenary,
-		/datum/advclass/ogre/warlord,
-		/datum/advclass/ogre/cook
-	)
