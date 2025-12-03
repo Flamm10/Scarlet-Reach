@@ -38,3 +38,47 @@
 
 /datum/job/roguetown/hostage/special_check_latejoin(client/C)
 	return FALSE
+
+// Hostage-specific subclasses
+/datum/outfit/job/roguetown/hostage_noble
+	name = "Hostage Noble"
+
+/datum/outfit/job/roguetown/hostage_noble/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	if(!H) return
+	..() // Call base hostage outfit
+	if(H.mind)
+		H.adjust_skillrank(/datum/skill/combat/unarmed, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/sewing, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/craft/cooking, 1, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/riding, 2, TRUE)
+		H.adjust_skillrank(/datum/skill/misc/reading, 3, TRUE)
+		H.adjust_skillrank(/datum/skill/labor/farming, 1, TRUE)
+		if(H.age == AGE_OLD)
+			H.adjust_skillrank(/datum/skill/labor/farming, 1, TRUE)
+			H.adjust_skillrank(/datum/skill/misc/reading, 1, TRUE)
+		ADD_TRAIT(H, TRAIT_NOBLE, TRAIT_GENERIC)
+
+/datum/advclass/hostage_noble
+	parent_type = /datum/advclass
+	outfit = /datum/outfit/job/roguetown/hostage_noble
+	name = "Hostage Noble"
+	category_tags = list(CTAG_HOSTAGE)
+
+/datum/outfit/job/roguetown/hostage_towner
+	name = "Hostage Towner"
+
+/datum/outfit/job/roguetown/hostage_towner/pre_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	if(!H) return
+	H.adjust_skillrank(/datum/skill/combat/unarmed, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/knives, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/craft/crafting, 3, TRUE)
+	H.adjust_skillrank(/datum/skill/combat/wrestling, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/misc/reading, 2, TRUE)
+	H.adjust_skillrank(/datum/skill/labor/farming, 2, TRUE)
+
+/datum/advclass/hostage_towner
+	parent_type = /datum/advclass
+	outfit = /datum/outfit/job/roguetown/hostage_towner
+	name = "Hostage Towner"
+	category_tags = list(CTAG_HOSTAGE)
