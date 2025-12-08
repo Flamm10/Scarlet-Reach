@@ -1001,6 +1001,7 @@
 	result = /obj/structure/curtain
 	reqs = list(/obj/item/natural/cloth = 2)
 	craftdiff = 0
+	ignoredensity = TRUE
 
 /datum/crafting_recipe/roguetown/structure/apiary
 	name = "apiary"
