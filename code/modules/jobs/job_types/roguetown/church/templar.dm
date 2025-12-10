@@ -260,8 +260,13 @@
 			cloak = /obj/item/clothing/cloak/tabard/crusader/dendor
 		if(/datum/patron/divine/necra)
 			wrists = /obj/item/clothing/neck/roguetown/psicross/necra
-			head = /obj/item/clothing/head/roguetown/helmet/heavy/necran
 			cloak = /obj/item/clothing/cloak/templar/necran
+			var/necra_helmets = list(
+				"Standard Necran Helmet" = /obj/item/clothing/head/roguetown/helmet/heavy/necran,
+				"Alternative Necran Helmet" = /obj/item/clothing/head/roguetown/helmet/heavy/necrahelm
+			)
+			var/necra_choice = input(H, "Choose your helmet.", "Patron's Gift") as anything in necra_helmets
+			head = necra_helmets[necra_choice]
 		if(/datum/patron/divine/pestra)
 			wrists = /obj/item/clothing/neck/roguetown/psicross/pestra
 			head = /obj/item/clothing/head/roguetown/helmet/heavy/pestran
