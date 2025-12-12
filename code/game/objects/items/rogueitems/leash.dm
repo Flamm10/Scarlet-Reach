@@ -439,6 +439,13 @@
 	flick("bell_commonpressed", src)
 	last_ring = world.time
 
+/obj/item/catbell/cow/attack_self(mob/living/user)
+	if(world.time < last_ring + 15)
+		return
+	user.visible_message(span_info("[user] starts ringing the [src]."))
+	playsound(src, 'sound/items/cowbell1.ogg', 100, extrarange = 8, ignore_walls = TRUE)
+	flick("bell_commonpressed", src)
+	last_ring = world.time
 
 //Bell attachment onto collars
 /obj/item/catbell/attack(mob/living/carbon/target, mob/living/user)
