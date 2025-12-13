@@ -28,8 +28,6 @@
 	var/owner_has_control = TRUE
 	/// This can be the same as "target" but is not ALWAYS the same - this is set and unset with Grant() and Remove()
 	var/mob/owner
-	/// The action slot for keybinding (1-9)
-	var/slot = 0
 
 /datum/action/New(Target)
 	link_to(Target)
@@ -73,11 +71,6 @@
 				button.id = bitflag
 				break
 			bitflag *= 2
-
-		if(slot == 0)
-			slot = M.actions.len + 1
-			if(slot > 9)
-				slot = 0
 
 		M.actions += src
 		if(M.client)
@@ -160,9 +153,9 @@
 /datum/action/proc/ApplyIcon(atom/movable/screen/movable/action_button/current_button, force = FALSE)
 	if(icon_icon && button_icon_state && ((current_button.button_icon_state != button_icon_state) || force))
 		current_button.cut_overlays(TRUE)
-		current_button.add_overlay(mutable_appearance(icon_icon, button_icon_state, layer = current_button.layer + 0.1))
+		current_button.add_overlay(mutable_appearance(icon_icon, button_icon_state))
 		if(overlay_state)
-			var/mutable_appearance/overlaid_icon = mutable_appearance(icon_icon, overlay_state, layer = current_button.layer + 0.2)
+			var/mutable_appearance/overlaid_icon = mutable_appearance(icon_icon, overlay_state)
 			overlaid_icon.alpha = overlay_alpha
 			current_button.add_overlay(overlaid_icon)
 		current_button.button_icon_state = button_icon_state

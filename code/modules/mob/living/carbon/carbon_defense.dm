@@ -248,9 +248,9 @@
 						update_inv_head()
 
 	if(user == src || pulledby == user)
-		send_item_attack_message(I, user, precise_attack_check(useder, affecting), affecting)
+		send_item_attack_message(I, user, precise_attack_check(useder, affecting))
 	else
-		send_item_attack_message(I, user, affecting.name, affecting)
+		send_item_attack_message(I, user, affecting.name)
 
 	if(statforce)
 		var/probability = I.get_dismemberment_chance(affecting, user, useder)

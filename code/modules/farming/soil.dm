@@ -4,8 +4,6 @@
 #define MAX_PLANT_WEEDS 100
 #define SOIL_DECAY_TIME 10 MINUTES
 
-GLOBAL_LIST_EMPTY(soil_list)
-
 /obj/structure/soil
 	name = "soil"
 	desc = "Dirt, ready to give life like a womb."
@@ -44,16 +42,6 @@ GLOBAL_LIST_EMPTY(soil_list)
 	var/soil_decay_time = SOIL_DECAY_TIME
 	///The time remaining in which the soil was given special fertilizer, effect is similar to being blessed but with less beneficial effects
 	var/fertilized_time = 0
-	///Cached var to determine whether we need to call an icon update or not.
-	var/needs_icon_update = FALSE
-
-/obj/structure/soil/Initialize()
-	. = ..()
-	GLOB.soil_list += src
-
-/obj/structure/soil/Destroy()
-	GLOB.soil_list -= src
-	return ..()
 
 /obj/structure/soil/Crossed(atom/movable/AM)
 	. = ..()
@@ -301,7 +289,6 @@ GLOBAL_LIST_EMPTY(soil_list)
 	if(plant && plant_dead)
 		plant_dead = FALSE
 		plant_health = 10.0
-		update_icon()
 	// If low on nutrition, Dendor provides
 	if(nutrition < 30)
 		adjust_nutrition(max(30 - nutrition, 0))
@@ -316,33 +303,25 @@ GLOBAL_LIST_EMPTY(soil_list)
 	fertilized_time = 60 MINUTES //Keeps the plant fertilized for a good while
 
 /obj/structure/soil/proc/adjust_water(adjust_amount)
-	var/pre_water = water
 	water = clamp(water + adjust_amount, 0, MAX_PLANT_WATER)
-	if (adjust_amount && pre_water != water)
-		needs_icon_update = TRUE
+	update_icon()
 
 /obj/structure/soil/proc/adjust_nutrition(adjust_amount)
-	var/pre_nutrition = nutrition
 	nutrition = clamp(nutrition + adjust_amount, 0, MAX_PLANT_NUTRITION)
-	if (adjust_amount && pre_nutrition != nutrition)
-		needs_icon_update = TRUE
+	update_icon()
 
 /obj/structure/soil/proc/adjust_weeds(adjust_amount)
-	var/pre_weeds = weeds
 	weeds = clamp(weeds + adjust_amount, 0, MAX_PLANT_WEEDS)
-	if (adjust_amount && pre_weeds != weeds)
-		needs_icon_update = TRUE
+	update_icon()
 
 /obj/structure/soil/proc/adjust_plant_health(adjust_amount)
 	if(!plant || plant_dead)
 		return
-	var/pre_plant_health = plant_health
 	plant_health = clamp(plant_health + adjust_amount, 0, MAX_PLANT_HEALTH)
 	if(plant_health <= 0)
 		plant_dead = TRUE
 		produce_ready = FALSE
-	if (adjust_amount && pre_plant_health != plant_health)
-		needs_icon_update = TRUE
+	update_icon()
 
 /obj/structure/soil/Initialize()
 	START_PROCESSING(SSprocessing, src)
@@ -359,11 +338,9 @@ GLOBAL_LIST_EMPTY(soil_list)
 	process_weeds(dt)
 	process_plant(dt)
 	process_soil(dt)
+	update_icon()
 	if(soil_decay_time <= 0)
 		decay_soil()
-	if (plant && needs_icon_update) // only call icon updates if we really need to (aka if we've requested an icon update and if we have a plant)
-		update_icon()
-		needs_icon_update = FALSE
 
 /obj/structure/soil/weather_act_on(weather_trait, severity)
 	if(weather_trait != PARTICLEWEATHER_RAIN)
@@ -604,13 +581,11 @@ GLOBAL_LIST_EMPTY(soil_list)
 	if(!matured)
 		if(growth_time >= plant.maturation_time)
 			matured = TRUE
-			needs_icon_update = TRUE
 	else
 		produce_time += added_growth
 		if(produce_time >= plant.produce_time)
 			produce_time -= plant.produce_time
 			produce_ready = TRUE
-			needs_icon_update = TRUE
 
 
 #define SOIL_WATER_DECAY_RATE 0.5 / (1 MINUTES)

@@ -6,9 +6,11 @@
 	downgrade_wave = /datum/migrant_wave/heartfelt_down_one
 	roles = list(
 		/datum/migrant_role/heartfelt/lord = 1,
+		/datum/migrant_role/heartfelt/lady = 1,
 		/datum/migrant_role/heartfelt/hand = 1,
 		/datum/migrant_role/heartfelt/knight = 1,
-		/datum/migrant_role/heartfelt/retinue = 4,
+		/datum/migrant_role/heartfelt/magos = 1,
+		/datum/migrant_role/heartfelt/prior = 1,
 	)
 	greet_text = "Fleeing disaster, you have come together as a court, united in a final effort to restore the former glory and promise of Heartfelt. Stay close and watch out for each other, for all of your sakes!"
 
@@ -19,9 +21,10 @@
 	downgrade_wave = /datum/migrant_wave/heartfelt_down_two
 	roles = list(
 		/datum/migrant_role/heartfelt/lord = 1,
+		/datum/migrant_role/heartfelt/lady = 1,
 		/datum/migrant_role/heartfelt/hand = 1,
 		/datum/migrant_role/heartfelt/knight = 1,
-		/datum/migrant_role/heartfelt/retinue = 3,
+		/datum/migrant_role/heartfelt/magos = 1,
 	)
 	greet_text = "Fleeing disaster, you have come together as a court, united in a final effort to restore the former glory and promise of Heartfelt. Stay close and watch out for each other, for all of your sakes! Some of you already did not make it on the way here..."
 
@@ -32,9 +35,9 @@
 	downgrade_wave = /datum/migrant_wave/heartfelt_down_three
 	roles = list(
 		/datum/migrant_role/heartfelt/lord = 1,
+		/datum/migrant_role/heartfelt/lady = 1,
 		/datum/migrant_role/heartfelt/hand = 1,
 		/datum/migrant_role/heartfelt/knight = 1,
-		/datum/migrant_role/heartfelt/retinue = 2,
 	)
 	greet_text = "Fleeing disaster, you have come together as a court, united in a final effort to restore the former glory and promise of Heartfelt. Stay close and watch out for each other, for all of your sakes! Some of you already did not make it on the way here..."
 
@@ -48,7 +51,6 @@
 		/datum/migrant_role/heartfelt/lord = 1,
 		/datum/migrant_role/heartfelt/knight = 1,
 		/datum/migrant_role/heartfelt/hand = 1,
-		/datum/migrant_role/heartfelt/retinue = 1,
 	)
 	greet_text = "Fleeing disaster, you have come together as a court, united in a final effort to restore the former glory and promise of Heartfelt. Stay close and watch out for each other, for all of your sakes! Some of you already did not make it on the way here..."
 
@@ -59,7 +61,7 @@
 	downgrade_wave = /datum/migrant_wave/heartfelt_down_five
 	roles = list(
 		/datum/migrant_role/heartfelt/lord = 1,
-		/datum/migrant_role/heartfelt/hand = 1,
+		/datum/migrant_role/heartfelt/lady = 1,
 		/datum/migrant_role/heartfelt/knight = 1,
 	)
 	greet_text = "Fleeing disaster, you have come together as a court, united in a final effort to restore the former glory and promise of Heartfelt. Stay close and watch out for each other, for all of your sakes! Some of you already did not make it on the way here..."
@@ -72,9 +74,8 @@
 	roles = list(
 		/datum/migrant_role/heartfelt/lord = 1,
 		/datum/migrant_role/heartfelt/hand = 1,
-		/datum/migrant_role/heartfelt/retinue = 1,
 	)
-	greet_text = "Fleeing disaster, you came together as a court, united in a final effort to restore the former glory and promise of Heartfelt. Stay close and watch out for each other, for all of your sakes! Some of you already did not make it on the way here..."
+	greet_text = "Fleeing disaster, you came together as a court, united in a final effort to restore the former glory and promise of Heartfelt. Now, in the end, it is only the Lord and their trusty Hand left on their lonesome..."
 
 /datum/migrant_wave/heartfelt_down_six
 	name = "The Court of Heartfelt"
@@ -83,9 +84,10 @@
 	downgrade_wave = /datum/migrant_wave/heartfelt_down_seven
 	roles = list(
 		/datum/migrant_role/heartfelt/lord = 1,
-		/datum/migrant_role/heartfelt/retinue = 2,
+		/datum/migrant_role/heartfelt/knight = 1,
 	)
-	greet_text = "Fleeing disaster, you came together as a court, united in a final effort to restore the former glory and promise of Heartfelt. Stay close and watch out for each other, for all of your sakes! Some of you already did not make it on the way here..."
+	greet_text = "Fleeing disaster, you came together as a court, united in a final effort to restore the former glory and promise of Heartfelt. Now, in the end, it is only the Lord and their trusty knight left on their lonesome..."
+
 
 /datum/migrant_wave/heartfelt_down_seven
 	name = "The Court of Heartfelt"
@@ -94,33 +96,11 @@
 	downgrade_wave = /datum/migrant_wave/heartfelt_down_eight
 	roles = list(
 		/datum/migrant_role/heartfelt/lord = 1,
-		/datum/migrant_role/heartfelt/knight = 1,
+		/datum/migrant_role/heartfelt/lady = 1,
 	)
-	greet_text = "Fleeing disaster, you came together as a court, united in a final effort to restore the former glory and promise of Heartfelt. Now, in the end, it is only the Lord and their trusty knight left on their lonesome..."
+	greet_text = "Fleeing disaster, you came together as a court, united in a final effort to restore the former glory and promise of Heartfelt. Now, in the end, it is only the Lord and their love left on their lonesome..."
 
 /datum/migrant_wave/heartfelt_down_eight
-	name = "The Court of Heartfelt"
-	shared_wave_type = /datum/migrant_wave/heartfelt
-	can_roll = FALSE
-	downgrade_wave = /datum/migrant_wave/heartfelt_down_nine
-	roles = list(
-		/datum/migrant_role/heartfelt/lord = 1,
-		/datum/migrant_role/heartfelt/hand = 1,
-	)
-	greet_text = "Fleeing disaster, you came together as a court, united in a final effort to restore the former glory and promise of Heartfelt. Now, in the end, it is only the Lord and their trusty Hand left on their lonesome..."
-
-/datum/migrant_wave/heartfelt_down_nine
-	name = "The Court of Heartfelt"
-	shared_wave_type = /datum/migrant_wave/heartfelt
-	downgrade_wave = /datum/migrant_wave/heartfelt_down_ten
-	can_roll = FALSE
-	roles = list(
-		/datum/migrant_role/heartfelt/lord = 1,
-		/datum/migrant_role/heartfelt/retinue = 1,
-	)
-	greet_text = "Fleeing disaster, you have came together as a court, united in a final effort to restore the former glory and promise of Heartfelt. Now, in the end, it is only the Lord and their last loyal follower left on their lonesome..."
-
-/datum/migrant_wave/heartfelt_down_ten
 	name = "The Court of Heartfelt"
 	shared_wave_type = /datum/migrant_wave/heartfelt
 	can_roll = FALSE

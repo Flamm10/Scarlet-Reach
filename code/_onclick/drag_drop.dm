@@ -282,8 +282,7 @@
 /client/proc/update_to_mob(mob/living/L, seconds_per_tick)
 	if(charging)
 		if(progress < goal)
-			progress += max(0, 1 * seconds_per_tick )//Tickspeed independent. Should always be 1, isn't always 1 when under strain.
-			progress = min(progress,  goal)
+			progress += 1 * seconds_per_tick //Tickspeed independent. Should always be 1, isn't always 1 when under strain.
 			chargedprog = ((progress / goal) * 100)
 			mouse_pointer_icon = SSmousecharge.access(chargedprog)
 		else //Fully charged spell

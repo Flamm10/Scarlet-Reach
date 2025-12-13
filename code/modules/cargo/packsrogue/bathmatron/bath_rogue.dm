@@ -30,9 +30,9 @@
 	name = "Smoke Bomb"
 	cost = 25
 	contains = list(
-		/obj/item/bomb/smoke,
-		/obj/item/bomb/smoke,
-		/obj/item/bomb/smoke)
+		/obj/item/smokebomb,
+		/obj/item/smokebomb,
+		/obj/item/smokebomb)
 
 /datum/supply_pack/rogue/bath_rogue/waterarrows
 	name = "Water Arrow"

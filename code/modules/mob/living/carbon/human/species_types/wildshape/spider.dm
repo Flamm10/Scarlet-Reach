@@ -16,12 +16,11 @@
 		src.adjust_skillrank(/datum/skill/misc/sneaking, 3, TRUE)
 		src.adjust_skillrank(/datum/skill/misc/climbing, 5, TRUE)
 
-		src.STASTR = 10
+		src.STASTR = 12
 		src.STACON = 6
-		src.STAEND = 11
+		src.STAEND = 7
 		src.STAPER = 12
 		src.STASPD = 14
-		update_move_intent_slowdown() // Apply speed changes
 
 		AddSpell(new /obj/effect/proc_holder/spell/self/spiderfangs)
 		AddSpell(new /obj/effect/proc_holder/spell/self/createhoney)

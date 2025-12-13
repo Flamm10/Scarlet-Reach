@@ -69,8 +69,6 @@
 	chargedloop = /datum/looping_sound/invokegen
 	devotion_cost = 80
 
-/*
-
 /obj/effect/proc_holder/spell/invoked/craftercovenant
 	name = "The Crafter’s Covenant"
 	desc = "Offer valuables to Malum for a potential reward based on their price."
@@ -94,9 +92,6 @@
 	charging_slowdown = 3
 	chargedloop = /datum/looping_sound/invokegen
 	devotion_cost = 100
-
-*/
-
 
 /obj/effect/proc_holder/spell/invoked/heatmetal/cast(list/targets, mob/user = usr)
 	. = ..()
@@ -259,8 +254,6 @@
 		target.energy_add(starminatoregen * 2)
 		show_visible_message(target, "As [user] intones the incantation, vibrant flames swirl around them, a dance of energy flowing towards [target].", "As [user] intones the incantation, vibrant flames swirl around them, a dance of energy flowing towards you. You feel refreshed")
 
-/*
-
 /obj/effect/proc_holder/spell/invoked/craftercovenant/cast(list/targets, mob/user = usr)
 	. = ..()
 	var/tithe = 0
@@ -356,8 +349,6 @@ var/global/list/anvil_recipe_prices[][]
 /world/New()
 	..()
 	initialize_anvil_recipe_prices() // Precompute recipe prices on startup
-
-*/
 
 /obj/effect/proc_holder/spell/invoked/hammerfall/cast(list/targets, mob/user = usr)
 	var/turf/fallzone = null

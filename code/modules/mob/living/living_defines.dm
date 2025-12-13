@@ -11,7 +11,6 @@
 	var/resize = 1 //Badminnery resize
 	var/lastattacker = null
 	var/lastattackerckey = null
-	var/datum/weakref/lastattacker_weakref = null
 
 	//Health and life related vars
 	var/maxHealth = 100 //Maximum health that should be possible.
@@ -195,6 +194,3 @@
 	var/cmode_music_override_name // solely for autoselecting as a spawned-in mob
 
 	var/last_heard_raw_message //to prevent repeated messages from spamming
-
-	/// Parry timer for projectiles post-attack. Hooks into the attack animation, so is fairly clunky.
-	var/projectile_parry_timer

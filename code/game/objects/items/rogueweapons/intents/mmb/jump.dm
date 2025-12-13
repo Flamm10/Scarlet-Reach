@@ -47,8 +47,6 @@
 			to_chat(src, span_warning("That's too high for me..."))
 			return
 
-	SEND_SIGNAL(src, COMSIG_LIVING_ONJUMP, A)
-
 	changeNext_move(mmb_intent.clickcd)
 
 	face_atom(A)

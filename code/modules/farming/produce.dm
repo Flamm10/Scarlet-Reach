@@ -270,11 +270,6 @@
 	var/color_index = "good"
 	rotprocess = 15 MINUTES
 
-/obj/item/reagent_containers/food/snacks/grown/berries/rogue/examine(mob/user)
-	. = ..()
-	if(!user.get_client_color(/datum/client_colour/monochrome))
-		. += span_notice("These berries have a <b>[BERRYCOLORS[filling_color]]</b> hue.")
-
 /obj/item/reagent_containers/food/snacks/grown/berries/rogue/Initialize()
 	if(GLOB.berrycolors[color_index])
 		filling_color = GLOB.berrycolors[color_index]
@@ -412,7 +407,7 @@
 	var/success = FALSE
 	//Logic from funny_attack_effects
 	var/datum/antagonist/werewolf/Were = M.mind.has_antag_datum(/datum/antagonist/werewolf/)
-	var/datum/antagonist/vampire/Vamp = M.mind.has_antag_datum(/datum/antagonist/vampire/)
+	var/datum/antagonist/vampirelord/Vamp = M.mind.has_antag_datum(/datum/antagonist/vampirelord/)
 	if(Were && Were.transformed == TRUE)
 		user.visible_message(span_notice("[user] brings [src] to soak up the ichor of [M]'s wounds."))
 		if(do_after(user, 5 SECONDS, target = M))
@@ -443,7 +438,7 @@
 				else
 					return	
 				if(success)
-					changefood(/obj/item/reagent_containers/food/snacks/grown/rogue/fyritius/bloodied, user)
+					changefood(/obj/item/reagent_containers/food/snacks/grown/rogue/fyritius/bloodied, user)		
 
 
 /obj/item/reagent_containers/food/snacks/grown/rogue/fyritius/bloodied

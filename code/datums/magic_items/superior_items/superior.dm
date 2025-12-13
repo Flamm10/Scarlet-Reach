@@ -37,7 +37,7 @@
 	else
 		active_item = TRUE
 		ADD_TRAIT(user, TRAIT_LIGHT_STEP, "[type]")
-		ADD_TRAIT(user, TRAIT_NOFALLDAMAGE1, "[type]")
+		user.change_stat("speed", 1)
 		to_chat(user, span_notice("I feel much more nimble!"))
 
 
@@ -45,7 +45,7 @@
 	if(active_item)
 		active_item = FALSE
 		REMOVE_TRAIT(user, TRAIT_LIGHT_STEP, "[type]")
-		REMOVE_TRAIT(user, TRAIT_LEAPER, "[type]")
+		user.change_stat("speed", -1)
 		to_chat(user, span_notice("I feel mundane once more"))
 
 /datum/magic_item/superior/fireresist
