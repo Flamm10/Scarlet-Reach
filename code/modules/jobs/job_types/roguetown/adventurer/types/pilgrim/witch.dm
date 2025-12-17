@@ -104,11 +104,6 @@
 				H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/guidance)
 				H.mind.AddSpell(new /obj/effect/proc_holder/spell/invoked/aerosolize)
 
-	if(H.gender == MALE)
-		armor = /obj/item/clothing/suit/roguetown/shirt/undershirt/corset
-		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/lowcut
-		pants = /obj/item/clothing/under/roguetown/skirt/red
-
 	if(H.gender == FEMALE)
 		armor = /obj/item/clothing/suit/roguetown/shirt/undershirt/corset
 		shirt = /obj/item/clothing/suit/roguetown/shirt/undershirt/lowcut
