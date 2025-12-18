@@ -30,6 +30,7 @@
 
 	skin_tone_wording = "Skintone"
 
+	inherent_traits = list(TRAIT_SILVER_BLESSED, TRAIT_ZOMBIE_IMMUNE)
 	species_traits = list(EYECOLOR,HAIR,FACEHAIR,LIPS,OLDGREY)
 	default_features = MANDATORY_FEATURE_LIST
 	use_skintones = 1
