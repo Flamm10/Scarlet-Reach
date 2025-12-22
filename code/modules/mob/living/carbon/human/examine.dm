@@ -652,8 +652,12 @@
 		msg += "[m1] being grabbed by [pulledby]."
 
 	//Nutrition and Thirst
-	if(nutrition < (NUTRITION_LEVEL_STARVING - 50))
+	if(has_status_effect(/datum/status_effect/debuff/overweight))
+		msg += "[m1] quite chubby."
+	if(has_status_effect(/datum/status_effect/debuff/underweight))
 		msg += "[m1] looking emaciated."
+//	if(nutrition < (NUTRITION_LEVEL_STARVING - 50))
+//		msg += "[m1] looking emaciated."
 //	else if(nutrition >= NUTRITION_LEVEL_FAT)
 //		if(user.nutrition < NUTRITION_LEVEL_STARVING - 50)
 //			msg += "[t_He] [t_is] plump and delicious looking - Like a fat little piggy. A tasty piggy."
@@ -796,42 +800,6 @@
 				if(dna.species.stress_examine)//some species don't have a stress desc
 					. += dna.species.stress_desc
 
-	if((user != src) && isliving(user))
-		var/mob/living/L = user
-		var/final_str = STASTR
-		if(HAS_TRAIT(src, TRAIT_DECEIVING_MEEKNESS))
-			final_str = L.STASTR - rand(1,2)
-		var/strength_diff = final_str - L.STASTR
-		switch(strength_diff)
-			if(5 to INFINITY)
-				. += span_warning("<B>[t_He] look[p_s()] much stronger than I.</B>")
-			if(1 to 5)
-				. += span_warning("[t_He] look[p_s()] stronger than I.")
-			if(0)
-				. += "[t_He] look[p_s()] about as strong as I."
-			if(-5 to -1)
-				. += span_warning("[t_He] look[p_s()] weaker than I.")
-			if(-INFINITY to -5)
-				. += span_warning("<B>[t_He] look[p_s()] much weaker than I.</B>")
-			
-	if((HAS_TRAIT(user,TRAIT_INTELLECTUAL)))
-		var/mob/living/L = user
-		var/final_int = STAINT
-		if(HAS_TRAIT(src, TRAIT_DECEIVING_MEEKNESS))
-			final_int = L.STAINT
-		var/int_diff = final_int - L.STAINT
-		switch(int_diff)
-			if(5 to INFINITY)
-				. += span_revenwarning("[t_He] look[p_s()] far more intelligent than I.")
-			if(2 to 5)
-				. += span_revenminor("[t_He] look[p_s()] smarter than I.")
-			if(-1 to 1)
-				. += "[t_He] look[p_s()] about as intelligent as I."
-			if(-5 to -2)
-				. += span_revennotice("[t_He] look[p_s()] dumber than I.")
-			if(-INFINITY to -5)
-				. += span_revennotice("[t_He] look[p_s()] as blunt-minded as a rock.")
-
 	if(maniac)
 		var/obj/item/organ/heart/heart = getorganslot(ORGAN_SLOT_HEART)
 		if(heart?.inscryption && (heart.inscryption_key in maniac.key_nums))
@@ -898,21 +866,21 @@
 					. += "<font size = 3><i>[skilldiff_report(skilldiff)] in my wielded skill than they are in theirs.</i></font>"
 
 	var/showassess = FALSE
+	var/size_check = SPAN_TOOLTIP_DANGEROUS_HTML(generate_size(user), "👁")
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(get_dist(src, H) <= ((2 + clamp(floor(((H.STAPER - 10))),-1, 4)) + HAS_TRAIT(user, TRAIT_INTELLECTUAL)))
 			showassess = TRUE
 
-	if(ishuman(user))
-		var/mob/living/carbon/human/H = user
-		if(get_dist(src, H) <= ((2 + clamp(floor(((H.STAPER - 10))),-1, 4)) + HAS_TRAIT(user, TRAIT_INTELLECTUAL)))
-			. += "<a href='?src=[REF(src)];task=assess;'>Assess</a>"
-
 	var/flavorcheck = FALSE // to avoid duplicating the below checks a little later
 	if((!obscure_name || client?.prefs.masked_examine) && (flavortext || headshot_link || ooc_notes))
 		flavorcheck = TRUE
+
+	if(showassess && !flavorcheck)
+		. += "<a href='?src=[REF(src)];task=assess;'><span class='big'><font color='bb4e28'>[size_check]</font></span></a>"
+
 	if(flavorcheck)
-		. += "<a href='?src=[REF(src)];task=view_headshot;'>Examine closer</a> [showassess ? " | <a href='?src=[REF(src)];task=assess;'>Assess</a>" : ""]"
+		. += "<a href='?src=[REF(src)];task=view_headshot;'>Examine closer</a> [showassess ? " | <a href='?src=[REF(src)];task=assess;'><span class='big'><font color='bb4e28'>[size_check]</font></span></a>" : ""]"
 		//tiny picture when you are not examining closer, shouldnt take too much space.
 	var/list/lines
 	if((get_face_name() != real_name) && !observer_privilege)
@@ -1059,3 +1027,62 @@
 			return "[verbose ? "Conjured shaft" : "(C. shaft)"]"
 		else
 			return null
+
+/mob/living/carbon/human/proc/generate_size(mob/user)
+	var/output = ""
+	if(src == user)
+		return output
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		var/avg_weight = src.dna.species.average_weight
+		if((H.height * 1.5) < height)
+			output = "They tower over me!"
+		else if(H.height < height)
+			output = "They are taller than I."
+		else if(H.height == height)
+			output = "We are the same height."
+		else
+			output = "They are shorter than I."
+		if(weight > (avg_weight * 1.6))
+			output += "<BR>They are corpulent with fat!"
+		else if(weight > (avg_weight * 1.3))
+			output += "<BR>They are quite plump."
+		else if(weight < (avg_weight * 0.8))
+			output += "<BR>They are quite thin."
+		else if(weight < (avg_weight * 0.6))
+			output += "<BR>They are nearly skeletal!"
+
+		var/final_str = STASTR
+		if(HAS_TRAIT(src, TRAIT_DECEIVING_MEEKNESS))
+			final_str = H.STASTR - rand(1,2)
+		var/strength_diff = final_str - H.STASTR
+		switch(strength_diff)
+			if(5 to INFINITY)
+				output += "<BR><B>They look much stronger than I.</B>"
+			if(1 to 5)
+				output += "<BR>They look stronger than I."
+			if(0)
+				output += "<BR>They look about as strong as I."
+			if(-5 to -1)
+				output += "<BR>They look weaker than I."
+			if(-INFINITY to -5)
+				output += "<BR><B>They look much weaker than I.</B>"
+
+		if((HAS_TRAIT(user,TRAIT_INTELLECTUAL)))
+			var/final_int = STAINT
+			if(HAS_TRAIT(src, TRAIT_DECEIVING_MEEKNESS))
+				final_int = H.STAINT
+			var/int_diff = final_int - H.STAINT
+			switch(int_diff)
+				if(5 to INFINITY)
+					output += "<BR>They look far more intelligent than I."
+				if(2 to 5)
+					output += "<BR>They look smarter than I."
+				if(-1 to 1)
+					output += "<BR>They look about as intelligent as I."
+				if(-5 to -2)
+					output += "<BR>They look dumber than I."
+				if(-INFINITY to -5)
+					output += "<BR>They look as blunt-minded as a rock."
+
+	return output
