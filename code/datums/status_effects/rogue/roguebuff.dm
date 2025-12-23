@@ -50,7 +50,7 @@
 	. = ..()
 	if(ishuman(owner))
 		var/mob/living/carbon/human/H = owner
-		H.weight += 0.2
+		H.weight += 0.1
 
 /datum/status_effect/buff/relaxing
 	id = "relaxing"
