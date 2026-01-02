@@ -236,7 +236,7 @@
 /obj/structure/ritualcircle/xylix
 	name = "Rune of Trickery"
 	icon_state = "xylix_chalky" //mortosasye sprite
-	desc = "A Holy Rune of Xylix. You can hear the wind and distant bells, in the distance."
+	desc = "A Holy Rune of Xylix. You can hear the wind and distant bells in the distance! Upon closer inspection, this rune seems a bit slippery..."
 
 /obj/structure/ritualcircle/xylix/Crossed(atom/movable/AM)
 	. = ..()
